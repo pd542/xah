@@ -4,12 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '13 19 */2 * *'
-env:
-    USERNAME_LIST:${{ secrets.USERNAME_LIST }}
-    PASSWORD_LIST:${{ secrets.PASSWORD_LIST }}
-    SECRETID:${{ secrets.SECRETID }}
-    SECRETKEY:${{ secrets.SECRETID }}
-    EMAIL:${{ secrets.EMAIL }}
 
 jobs:
   XAH:
@@ -20,6 +14,6 @@ jobs:
         run: |
           cmd /c curl -s -O https://raw.githubusercontent.com/pd542/master/chromedriver.exe
           cmd /c curl -s -O https://raw.githubusercontent.com/pd542/master/Sign_xah.exe
-          cmd /c Sign_xah.exe USERNAME_LIST PASSWORD_LIST SECRETID SECRETKEY EMAIL
+          cmd /c Sign_xah.exe ${{ secrets.USERNAME_LIST }} ${{ secrets.PASSWORD_LIST }} ${{ secrets.SECRETID }} ${{ secrets.SECRETID }} ${{ secrets.EMAIL }}
           # 推荐使用下方单账号单邮箱每个Action，同一Action多账户容易触发异常
           #cmd /c Sign_xah.exe "账号1" "密码1" "腾讯云访问密钥secretID" "腾讯云访问密钥secretkey" "邮箱"
