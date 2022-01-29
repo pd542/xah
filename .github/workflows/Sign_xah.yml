@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: 'Sign_xah' 
         run: |
-          cmd /c curl -s -O https://raw.githubusercontent.com/pd542/master/chromedriver.exe
+          cmd /c curl -s -O https://raw.githubusercontent.com/spiritLHL/Gecko_sign/master/chromedriver.exe
           cmd /c curl -s -O https://raw.githubusercontent.com/pd542/master/Sign_xah.exe
           cmd /c Sign_xah.exe ${{ secrets.USERNAME_LIST }} ${{ secrets.PASSWORD_LIST }} ${{ secrets.SECRETID }} ${{ secrets.SECRETID }} ${{ secrets.EMAIL }}
           # 推荐使用下方单账号单邮箱每个Action，同一Action多账户容易触发异常
